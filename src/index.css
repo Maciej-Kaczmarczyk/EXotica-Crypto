@@ -1,0 +1,19 @@
+/* It's importing the Outfit font from Google Fonts. */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+
+/* It's importing the base, components, and utilities Tailwind CSS files. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* It's setting the background color of the root element to dark grey. */
+:root {
+  @apply bg-darkgrey;
+}
+
+/* It's setting the font family of the html element to Outfit. */
+@layer base {
+  html {
+    font-family: Outfit;
+  }
+}
