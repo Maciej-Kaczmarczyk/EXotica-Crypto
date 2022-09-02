@@ -16,26 +16,11 @@ The main focus of the project was to create a fully responsive application for c
 
 
 ## Technologies Used
-- "@testing-library/jest-dom": "^5.16.5",
-- "@testing-library/react": "^13.3.0",
-- "@testing-library/user-event": "^13.5.0",
-- "axios": "^0.27.2",
-- "body-scroll-lock": "^4.0.0-beta.0",
-- "daisyui": "^2.22.0",
-- "dompurify": "^2.3.10",
-- "firebase": "^9.9.3",
-- "html-react-parser": "^3.0.1",
-- "react": "^18.2.0",
-- "react-dom": "^18.2.0",
-- "react-icons": "^4.4.0",
-- "react-router-dom": "^6.3.0",
-- "react-scripts": "5.0.1",
-- "react-sparklines": "^1.7.0",
-- "web-vitals": "^2.1.4"
-- "autoprefixer": "^10.4.8",
-- "postcss": "^8.4.16",
-- "prettier": "2.7.1",
-- "tailwindcss": "^3.1.8"
+- React
+- React Router
+- Firebase
+- Tailwindcss
+- Daisyui
 
 
 ## Features
