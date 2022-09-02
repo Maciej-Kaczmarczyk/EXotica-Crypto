@@ -18,9 +18,11 @@ The main focus of the project was to create a fully responsive application for c
 ## Technologies Used
 - React
 - React Router
+- REST API
 - Firebase
 - Tailwindcss
 - Daisyui
+
 
 
 ## Features
