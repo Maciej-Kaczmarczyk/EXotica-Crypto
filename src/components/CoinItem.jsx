@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import { UserAuth } from "../context/AuthContext";
@@ -31,7 +31,7 @@ const CoinItemLg = ({ coin }) => {
           symbol: coin.symbol,
           current_price: coin.current_price,
           market_cap_change_percentage_24h:
-            coin.market_cap_change_percentage_24h,
+          coin.market_cap_change_percentage_24h,
           total_volume: coin.total_volume,
           market_cap: coin.market_cap,
           sparkline_in_7d: { price: coin.sparkline_in_7d.price },
@@ -42,9 +42,20 @@ const CoinItemLg = ({ coin }) => {
     }
   };
 
+  const [mobileVersion, setMobileVersion] = useState(window.innerWidth)
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth < 1280){
+      setMobileVersion(true);
+      console.log("folga")
+    }else{setMobileVersion(false)}
+  });
+  
+
+
+if(!mobileVersion){
   return (
-    <div className="w-full">
-      <div className=" collapse-title bg-grey p-3 w-full rounded-[10px] hidden xl:block">
+      <div className="collapse-title bg-grey p-3 w-full rounded-[10px] hidden xl:block">
         <div className="flex items-center text-sm justify-between px-4">
           <div className="flex items-center gap-2 w-48 ">
             <div className="flex items-center gap-5">
@@ -128,8 +139,13 @@ const CoinItemLg = ({ coin }) => {
           </div>
         </div>
       </div>
+      )}
+      
 
-      <div className="block xl:hidden">
+
+    else
+    return(
+    <div className="block">
         <div className="collapse rounded-[10px]">
           <input type="checkbox" className="peer" />
           <div className="collapse-title text-sm bg-grey text-white p-3">
@@ -222,8 +238,9 @@ const CoinItemLg = ({ coin }) => {
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    
+    )
+ 
+}
 
 export default CoinItemLg;
