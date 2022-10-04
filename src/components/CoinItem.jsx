@@ -42,14 +42,21 @@ const CoinItemLg = ({ coin }) => {
     }
   };
 
-  const [mobileVersion, setMobileVersion] = useState(window.innerWidth)
+  const [mobileVersion, setMobileVersion] = useState(false)
+
+  window.addEventListener('load', () => {
+    if(window.innerWidth < 1280){
+      setMobileVersion(true);
+    }else{setMobileVersion(false)}
+  });
+
 
   window.addEventListener('resize', () => {
     if(window.innerWidth < 1280){
       setMobileVersion(true);
-      console.log("folga")
     }else{setMobileVersion(false)}
   });
+
   
 
 

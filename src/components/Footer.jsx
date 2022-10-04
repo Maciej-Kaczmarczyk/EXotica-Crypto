@@ -58,6 +58,7 @@ const Footer = () => {
           />
         </a>
       </div>
+      <p>Data provided by <a className="underline text-lime" href="https://www.coingecko.com/">CoinGecko</a></p>
     </footer>
   );
 };
