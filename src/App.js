@@ -2,11 +2,12 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./routes/Home";
-import Account from "./routes/Account";
-import SignIn from "./routes/SignIn";
-import SignUp from "./routes/SignUp";
-import CoinPage from "./routes/CoinPage";
 import { AuthContextProvider } from "./context/AuthContext";
+
+const Account = React.lazy(() => import("./routes/Account"));
+const SignIn = React.lazy(() => import("./routes/SignIn"));
+const SignUp = React.lazy(() => import("./routes/SignUp"));
+const CoinPage = React.lazy(() => import("./routes/CoinPage"));
 
 
 function App() {
