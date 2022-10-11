@@ -4,6 +4,7 @@ import { Sparklines, SparklinesLine } from "react-sparklines";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase-config";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const CoinItemLg = ({ coin }) => {
   /* A hook that is used to chek if the coin is already saved. */
@@ -42,6 +43,8 @@ const CoinItemLg = ({ coin }) => {
     }
   };
 
+  const [parent] = useAutoAnimate()
+
   const [mobileVersion, setMobileVersion] = useState(false);
 
   window.addEventListener("resize", () => {
@@ -62,7 +65,7 @@ const CoinItemLg = ({ coin }) => {
 
   if (!mobileVersion) {
     return (
-      <div className="collapse-title bg-grey p-3 w-full rounded-[10px] hidden xl:block">
+      <div ref={parent} className="collapse-title bg-grey p-3 w-full rounded-[10px] hidden xl:block">
         <div className="flex items-center text-sm justify-between px-4">
           <div className="flex items-center gap-2 w-48 ">
             <div className="flex items-center gap-5">
@@ -149,7 +152,7 @@ const CoinItemLg = ({ coin }) => {
     );
   } else
     return (
-      <div className="block">
+      <div ref={parent} className="block">
         <div className="collapse rounded-[10px]">
           <input type="checkbox" className="peer" />
           <div className="collapse-title text-sm bg-grey text-white p-3">
@@ -197,7 +200,7 @@ const CoinItemLg = ({ coin }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row gap-4 md:justify-between md:items-center collapse-content bg-grey pl-10">
+          <div className="flex flex-col lg:flex-row gap-4 lg:justify-between lg:items-center collapse-content bg-grey pl-10">
             <div>
               <h6 className="text-sm text-lightgrey">Price</h6>
               <p className=" text-white">${coin.current_price}</p>

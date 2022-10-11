@@ -5,6 +5,7 @@ import Logo from "../resources/expedia_logo.svg";
 import { CgMenuGridO } from "react-icons/cg";
 import { UserAuth } from "../context/AuthContext";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -23,6 +24,8 @@ const Navbar = () => {
       console.log(e.message);
     }
   };
+
+  const [parent] = useAutoAnimate()
 
   menu ? disableBodyScroll(document) : enableBodyScroll(document);
 
@@ -82,7 +85,7 @@ const Navbar = () => {
           )}
         </div>
 
-        <div
+        <div 
           className={
             menu
               ? "md:hidden flex flex-col gap-5 items-center pt-10 fixed w-full h-[100vh] bg-darkgrey top-0 z-50 overflow-hidden "

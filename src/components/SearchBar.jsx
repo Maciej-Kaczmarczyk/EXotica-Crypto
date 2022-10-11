@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const SearchBar = () => {
   let [coins, setCoins] = useState([]);
@@ -18,6 +19,8 @@ const SearchBar = () => {
         .catch(console.error);
   }, [url, searchedText]);
 
+  const [parent] = useAutoAnimate()
+
   return (
     <>
       <input
@@ -27,10 +30,9 @@ const SearchBar = () => {
         className="input focus:outline-0 outline-none bg-grey h-10 w-full"
       />
 
-      <div className={searchedText !== "" ? "flex flex-wrap gap-3" : "hidden"}>
+      <div ref={parent} className={searchedText !== "" ? "flex flex-wrap gap-3" : "hidden"}>
         {searchedText !== ""
           ? coins.map((coin) => {
-              console.log(coin);
               return (
                 <Link key={coin.id} to={`/coin/${coin.id}`}>
                   <div className="flex items-center w-fit gap-3 bg-grey rounded-[10px] p-2 mt-4 text-xs">
