@@ -31,7 +31,7 @@ const CoinItemLg = ({ coin }) => {
           symbol: coin.symbol,
           current_price: coin.current_price,
           market_cap_change_percentage_24h:
-          coin.market_cap_change_percentage_24h,
+            coin.market_cap_change_percentage_24h,
           total_volume: coin.total_volume,
           market_cap: coin.market_cap,
           sparkline_in_7d: { price: coin.sparkline_in_7d.price },
@@ -42,26 +42,26 @@ const CoinItemLg = ({ coin }) => {
     }
   };
 
-  const [mobileVersion, setMobileVersion] = useState(false)
+  const [mobileVersion, setMobileVersion] = useState(false);
 
-  window.addEventListener('load', () => {
-    if(window.innerWidth < 1280){
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 1280) {
       setMobileVersion(true);
-    }else{setMobileVersion(false)}
+    } else {
+      setMobileVersion(false);
+    }
   });
 
-
-  window.addEventListener('resize', () => {
-    if(window.innerWidth < 1280){
+  useEffect(() => {
+    if (window.innerWidth < 1280) {
       setMobileVersion(true);
-    }else{setMobileVersion(false)}
-  });
+    } else {
+      setMobileVersion(false);
+    }
+  } , [mobileVersion]);
 
-  
-
-
-if(!mobileVersion){
-  return (
+  if (!mobileVersion) {
+    return (
       <div className="collapse-title bg-grey p-3 w-full rounded-[10px] hidden xl:block">
         <div className="flex items-center text-sm justify-between px-4">
           <div className="flex items-center gap-2 w-48 ">
@@ -146,13 +146,10 @@ if(!mobileVersion){
           </div>
         </div>
       </div>
-      )}
-      
-
-
-    else
-    return(
-    <div className="block">
+    );
+  } else
+    return (
+      <div className="block">
         <div className="collapse rounded-[10px]">
           <input type="checkbox" className="peer" />
           <div className="collapse-title text-sm bg-grey text-white p-3">
@@ -238,16 +235,14 @@ if(!mobileVersion){
 
             <Link
               to={`/coin/${coin.id}`}
-              className="btn flex items-center justify-center h-8  bg-lime border-lime text-darkgrey rounded-[10px]"
+              className="btn flex items-center justify-center h-8 bg-lime border-lime text-darkgrey rounded-[10px] hover:bg-[#537616]"
             >
               SEE MORE
             </Link>
           </div>
         </div>
       </div>
-    
-    )
- 
-}
+    );
+};
 
 export default CoinItemLg;
