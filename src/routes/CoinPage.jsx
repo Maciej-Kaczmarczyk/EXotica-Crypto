@@ -305,12 +305,12 @@ const CoinPage = () => {
                 <div className="w-full md:w-1/2 flex flex-wrap-reverse justify-center md:justify-between items-center gap-y-8 md:gap-y-4">
                   <div className="flex gap-2">
                     {coin.links?.homepage[0] ? (
-                      <a href={coin.links?.homepage[0]}>
+                      <a className="hover:text-lime" href={coin.links?.homepage[0]}>
                         <AiFillHome size={20} />
                       </a>
                     ) : null}
                     {coin.links?.facebook_username ? (
-                      <a
+                      <a className="hover:text-lime"
                         href={
                           "https://www.facebook.com/" +
                           coin.links?.facebook_username
@@ -320,7 +320,7 @@ const CoinPage = () => {
                       </a>
                     ) : null}
                     {coin.links?.twitter_screen_name ? (
-                      <a
+                      <a className="hover:text-lime"
                         href={
                           "https://twitter.com/" +
                           coin.links?.twitter_screen_name
@@ -330,12 +330,12 @@ const CoinPage = () => {
                       </a>
                     ) : null}
                     {coin.links?.homepage[0] ? (
-                      <a href={coin.links?.repos_url.github[0]}>
+                      <a className="hover:text-lime" href={coin.links?.repos_url.github[0]}>
                         <AiFillGithub size={20} />
                       </a>
                     ) : null}
                     {coin.links?.chat_url[0] ? (
-                      <a href={coin.links?.chat_url[0]}>
+                      <a className="hover:text-lime" href={coin.links?.chat_url[0]}>
                         <BsDiscord size={20} />
                       </a>
                     ) : null}
